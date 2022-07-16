@@ -1,0 +1,31 @@
+{
+  "name": "repuestoscostacarros",
+  "version": "1.0.0",
+  "description": "API to do pen test's and more... SPD_PF_IIC",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "test",
+    "api",
+    "web",
+    "app"
+  ],
+  "author": "swim dacs",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "express-fileupload": "^1.4.0",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
