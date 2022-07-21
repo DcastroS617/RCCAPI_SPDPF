@@ -1,7 +1,8 @@
 const express = require('express')
-const { GetAutopartsDetails } = require('../controllers/autopartdetail')
+const { GetAutopartsDetails, PostAutopartDetail, GetAutopartsDetail } = require('../controllers/autopartdetail')
 const router = express.Router()
 
-router.route('/autopartdetail').get(GetAutopartsDetails)
+router.route('/autopartdetail').get(GetAutopartsDetails).post(PostAutopartDetail)
+router.route('/autopartdetail/:id').get(GetAutopartsDetail)
 
 module.exports = router

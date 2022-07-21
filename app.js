@@ -45,7 +45,7 @@ app.use(ErrorHandlerMiddleware)
 const port = process.env.PORT || 3050
 
 const start = () => {
-    sequelize.sync({alter: true})
+    sequelize.sync()//{alter:true}
     app.listen(port, () => console.log(`app listening on port ${port}`))
 }
 

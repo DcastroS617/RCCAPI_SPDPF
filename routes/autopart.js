@@ -1,7 +1,8 @@
 const express = require('express')
-const { GetAutoparts } = require('../controllers/autopart')
+const { GetAutoparts, PostAutopart, GetAutopart } = require('../controllers/autopart')
 const router = express.Router()
 
-router.route('/autopart').get(GetAutoparts)
+router.route('/autopart').get(GetAutoparts).post(PostAutopart)
+router.route('/autopart/:id').get(GetAutopart)
 
 module.exports = router
