@@ -10,7 +10,7 @@ const GetAutoparts = async (req, res) => {
     const { query: { name } } = req
     const queryObject = {}
     if(name){
-        queryObject.name = name
+        queryObject.Name = name
     }
     const autoparts = await AutopartModel.findAll({
         include: [{
@@ -22,11 +22,11 @@ const GetAutoparts = async (req, res) => {
         {
             model: DistributorModel
         }],
-        where: {
-            queryObject
+        attributes: {
+            exclude: ['DistributorID', 'ProvidorID', 'AutopartDetailID']
         }
     })
-    return res.status(StatusCodes.OK).json({ autoparts })
+    return res.status(StatusCodes.OK).json(autoparts)
 }
 
 const PostAutopart = async (req, res) => {
