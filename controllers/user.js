@@ -12,14 +12,14 @@ const GetUsers = async (req, res) => {
 //auth controllers
 const Login = async (req, res) => {
     const {body: {Username, Password}} = req
-    const user = await UserModel.findOne({where: {Username: Username}})
+    const user = await UserModel.findOne({where: {Username: Username},})
     if(!user) throw new NotFoundError('el usuario no se encuentra registrado')
     const compare = bcrypt.compare(Password, user.Password)
     if(!compare) throw new NotFoundError('contrasenha equivocada')
     const token = jwt.sign({UserID: user.UserID, Username, Email: user.Email}, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRESIN
     })
-    return res.status(StatusCodes.ACCEPTED).json({msg: `welcome, ${user.Username}`, token})
+    return res.status(StatusCodes.ACCEPTED).json({msg: `welcome ${user.Username}`, token})
 }
 
 const Register = async (req, res) => {
