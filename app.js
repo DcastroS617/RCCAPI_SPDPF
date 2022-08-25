@@ -5,7 +5,7 @@ require('dotenv').config()
 const { StatusCodes } = require('http-status-codes')
 const ErrorHandlerMiddleware = require('./middleware/ErrorHandlerMiddleware')
 const https = require('https')
-const fs = require(fs)
+const fs = require('fs')
 
 const sequelize = require('./db/sequelize')
 
