@@ -1,7 +1,6 @@
-const usernameDOM = document.querySelector('.usernamelog')
-const passwordDOM = document.querySelector('.passwordlog')
-
 const Login = async () => {
+    const usernameDOM = document.querySelector('.usernamelog')
+    const passwordDOM = document.querySelector('.passwordlog')
     const logbod = {
         Username: usernameDOM.value,
         Password: passwordDOM.value
