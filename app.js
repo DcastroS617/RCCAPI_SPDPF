@@ -52,8 +52,8 @@ const options = {
 
 const start = () => {
     sequelize.sync()//{alter:true}
-    https.createServer(options, app).listen(port)
-    //app.listen(port, () => console.log(`app listening on port ${port}`))
+    //https.createServer(options, app).listen(port)
+    app.listen(port, () => console.log(`app listening on port ${port}`))
 }
 
 start()
