@@ -4,6 +4,8 @@ require('dotenv').config()
 
 const { StatusCodes } = require('http-status-codes')
 const ErrorHandlerMiddleware = require('./middleware/ErrorHandlerMiddleware')
+const https = require('https')
+const fs = require(fs)
 
 const sequelize = require('./db/sequelize')
 
@@ -43,10 +45,15 @@ app.use('/api', SaleRoute)
 app.use(ErrorHandlerMiddleware)
 
 const port = process.env.PORT || 3050
+const options = {
+    key: fs.readFileSync("/home/certs/SPDSRV.key"),
+    cert: fs.readFileSync("/home/certs/SPDSRV.crt")
+}
 
 const start = () => {
     sequelize.sync()//{alter:true}
-    app.listen(port, () => console.log(`app listening on port ${port}`))
+    https.createServer(options, app).listen(port)
+    //app.listen(port, () => console.log(`app listening on port ${port}`))
 }
 
 start()
